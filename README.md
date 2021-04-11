@@ -1,5 +1,5 @@
 # Configuración Estandar Webpack
-Configuración Standard de Webpack
+Webapp hecha en javascript con Bootstrap
 
 
 ## Aclaración
