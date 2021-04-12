@@ -1,5 +1,5 @@
 # Configuración Estandar Webpack
-Webapp hecha en javascript con Bootstrap
+Webapp hecha en javascript con Bootstrap, estado final.
 
 
 ## Aclaración
