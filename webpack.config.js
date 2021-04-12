@@ -1,11 +1,20 @@
 const HtmlWebPackPlugin       = require('html-webpack-plugin'); 
-const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
+/* const MiniCssExtractPlugin    = require('mini-css-extract-plugin'); */
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyPlugin              = require('copy-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     mode: 'development',
     entry: './src/app/index.js',
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    output: {
+
+        filename: 'bundle.js'
+    },
+
     optimization: {
         minimizer: [ new OptimizeCssAssetsPlugin() ]
     },
@@ -20,14 +29,14 @@ module.exports = {
                 ]
             },
             {
-                test: /\.css$/,
+                /* test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader'
-                ]
+                ] */
             },
             {
-                test: /\.html$/i,
+                test: /\.html$/,
                 loader: 'html-loader',
                 options: {
                     attributes: false,
@@ -50,15 +59,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './src/index.html',
-            filename: './index.html'
+            template: 'src/index.html',
+            filename: 'index.html'
         }),
-        new MiniCssExtractPlugin({
+      /*   new MiniCssExtractPlugin({
             filename: '[name].css',
             ignoreOrder: false
-        }),
+        }), */
         new CopyPlugin([
-            { from: 'src/assets', to: 'assets/' },
+            { from: './src/assets', to: 'assets/' },
         ]),
     ]
 
